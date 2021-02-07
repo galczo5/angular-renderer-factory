@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule, EventManager} from '@angular/platform-browser';
+import {NgModule, RendererFactory2} from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {TestModule} from '../test/test.module';
+import {DomRendererFactory2WithLogger} from './DomRendererFactory2WithLogger';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule
+    imports: [
+        BrowserModule,
+        TestModule
+    ],
+  providers: [
+    { provide: RendererFactory2, useClass: DomRendererFactory2WithLogger, deps: [EventManager] }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

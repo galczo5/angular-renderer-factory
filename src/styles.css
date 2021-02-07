@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-size: 24px;
+  font-family: monospace;
+}
+
+app-counter, app-nested-counter, app-automatic-counter {
+  max-width: 800px;
+  display: block;
+  padding: 20px;
+  background: lightgray;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+app-nested-counter app-counter {
+  background: lightcoral;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+}

@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <app-nested-counter></app-nested-counter>
+    <app-counter></app-counter>
+    <app-automatic-counter></app-automatic-counter>
+  `
 })
 export class AppComponent {
-  title = 'angular-renderer-factory';
 }
