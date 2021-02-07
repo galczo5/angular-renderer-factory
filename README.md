@@ -1,7 +1,7 @@
 ## Why? 
 
 `ChangeDetectorRef.detectChanges()` calls `RendererFactory2.begin()` method. 
-So if we can proxy method we can detect `ChangeDetectorRef.detectChanges()` calls and debug performance problems related to rendering problems.
+So if we create proxy for this method we should be able to detect `ChangeDetectorRef.detectChanges()` calls and debug performance problems related to rendering problems.
 
 ![giphy](./giphy2.gif)
 
