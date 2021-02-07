@@ -16,7 +16,7 @@ export const NAMESPACE_URIS: { [ns: string]: string } = {
   xmlns: 'http://www.w3.org/2000/xmlns/',
 };
 
-const NG_DEV_MODE = 1 === 1;
+const NG_DEV_MODE = true;
 
 export class DefaultDomRenderer2 implements Renderer2 {
 
@@ -157,11 +157,9 @@ export class DefaultDomRenderer2 implements Renderer2 {
     () => void {
     NG_DEV_MODE && checkNoSyntheticProp(event, 'listener');
     if (typeof target === 'string') {
-      return this.eventManager.addGlobalEventListener(
-        target, event, decoratePreventDefault(callback)) as () => void;
+      return this.eventManager.addGlobalEventListener(target, event, decoratePreventDefault(callback)) as () => void;
     }
-    return this.eventManager.addEventListener(
-      target, event, decoratePreventDefault(callback)) as () => void as () => void;
+    return this.eventManager.addEventListener(target, event, decoratePreventDefault(callback)) as () => void as () => void;
   }
 }
 
@@ -169,8 +167,7 @@ const AT_CHARCODE = (() => '@'.charCodeAt(0))();
 
 function checkNoSyntheticProp(name: string, nameKind: string) {
   if (name.charCodeAt(0) === AT_CHARCODE) {
-    throw new Error(`Found the synthetic ${nameKind} ${
-      name}. Please include either "BrowserAnimationsModule" or "NoopAnimationsModule" in your application.`);
+    throw new Error(`Found the synthetic ${nameKind} ${name}. Please include either "BrowserAnimationsModule" or "NoopAnimationsModule" in your application.`);
   }
 }
 
